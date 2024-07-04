@@ -14,6 +14,7 @@ func main() {
 	models.ConnectDatabase()
 
 	r.GET("/students", controllers.FindStudents)
-
+    r.POST("/students", controllers.CreateStudent)
+	
 	r.Run()
 }
