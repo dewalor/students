@@ -1,17 +1,19 @@
 package main
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
+
+	"students/models"
+	"students/controllers"
+
 )
 
 func main() {
 	r := gin.Default()
 
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"data": "hello world"})
-	})
+	models.ConnectDatabase()
+
+	r.GET("/students", controllers.FindStudents)
 
 	r.Run()
 }
